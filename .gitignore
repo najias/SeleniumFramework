@@ -1,7 +1,11 @@
 .DS_Store
 
 /doc/
+/test-output/
 	
 
 /target/
 
+.classpath
+.project
+.settings/
