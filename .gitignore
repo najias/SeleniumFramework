@@ -2,9 +2,8 @@
 
 /doc/
 /test-output/
-	
-
 /target/
+/Results/
 
 .classpath
 .project

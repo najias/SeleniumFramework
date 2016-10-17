@@ -1,14 +1,23 @@
 package tests;
 
+import org.testng.Assert;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 
 public class TestSigninPage extends TestBase {
 	
-	@Test
+	@BeforeClass
+	public void classSetUp(){
+		menuBar.signInLink.click();
+	}
 	
-	public void sampleTest(){
+	@Test
+	public void testSignInWithValidCredentials(){
+		signinPage.signIn(getProperty("email"), getProperty("password"));
+		String  url = signinPage.getCurrentUrl();
+		Assert.assertTrue(url.contains("/profiles.php"));
 		
 	}
 
