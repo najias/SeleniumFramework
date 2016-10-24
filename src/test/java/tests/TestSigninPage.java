@@ -32,22 +32,25 @@ public class TestSigninPage extends TestBase {
 		signinPage.signIn("sakil@yah.com", "365827");
 		String url = signinPage.getCurrentUrl();
 		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email or Password is incorrect.");
 
 	}
 
 	@Test
 	public void testSignInWithValidEmailAndInvalidPassword() {
-		signinPage.signIn("shakil_ipe@yahoo.com", "867453");
+		signinPage.signIn("shakil_ipe@yahoo.com", "Invalid");
 		String url = signinPage.getCurrentUrl();
 		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(1).getText(), "*");
 
 	}
 
 	@Test
 	public void testSignInWithInvalidEmailAndInvalidPassword() {
-		signinPage.signIn("sdfg@fgh.dfg.com", "346787");
+		signinPage.signIn("sdfg@fgh.dfg.com", "Invalid");
 		String url = signinPage.getCurrentUrl();
 		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email or Password is incorrect.");
 
 	}
 
@@ -56,6 +59,9 @@ public class TestSigninPage extends TestBase {
 		signinPage.signIn("", "365827");
 		String url = signinPage.getCurrentUrl();
 		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email can not be empty.");
+
+		
 
 	}
 
@@ -64,7 +70,9 @@ public class TestSigninPage extends TestBase {
 		signinPage.signIn("shakil_ipe@yahoo.com", "");
 		String url = signinPage.getCurrentUrl();
 		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email or Password is incorrect.");
 
+		
 	}
 
 	@Test
@@ -72,6 +80,9 @@ public class TestSigninPage extends TestBase {
 		signinPage.signIn("", "");
 		String url = signinPage.getCurrentUrl();
 		Assert.assertTrue(url.contains("/signin.php"));
+		Assert.assertEquals(signinPage.errorWebElementList.get(0).getText(), "* Email can not be empty.");
+		Assert.assertEquals(signinPage.errorWebElementList.get(1).getText(), "* Password can not be empty.");
+
 
 	}
 
