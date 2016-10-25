@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 
 import pages.MenuBar;
+import pages.RegisterPage;
 import pages.SigninPage;
 
 @Listeners(listener.EliteListener.class)
@@ -19,6 +20,8 @@ public class TestBase extends Driver{
 	
 	protected static SigninPage  signinPage;
 	protected static MenuBar  menuBar;
+	protected static RegisterPage  registerPage ;
+	
 	
 	@BeforeSuite
 	public void setUp(){
@@ -32,7 +35,7 @@ public class TestBase extends Driver{
 		//
 		signinPage =  PageFactory.initElements(driver, SigninPage.class);
 		menuBar = PageFactory.initElements(driver, MenuBar.class);
-		
+		registerPage = PageFactory.initElements(driver, RegisterPage.class);
 		
 	}
 	@AfterSuite
