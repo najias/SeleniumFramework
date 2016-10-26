@@ -14,8 +14,15 @@ public class MenuBar extends PageBase{
 	@FindBy(linkText = "Logout")
 	public WebElement logoutLink;
 	
+	
+	@FindBy(linkText = "Register")
+	public WebElement registrationLink;
+
 
 	@FindBy(linkText = "Job Search")
 	public WebElement jobsearchLink;
 
+	
+
+	
 }
