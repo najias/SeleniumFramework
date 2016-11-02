@@ -15,6 +15,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testFirstNameWithOneCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("a");
 		registerPage.submitButton.click();
 
@@ -25,22 +26,25 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testFirstNameWithTwoCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("na");
 		registerPage.submitButton.click();
-		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "* ");
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "*");
 
 	}
 
 	@Test
 	public void testFirstNameWithThirtyCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("mynameisDewanNadiaSultanaShumi");
 		registerPage.submitButton.click();
-		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "* ");
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "*");
 
 	}
 
 	@Test
 	public void testFirstNameWithThirtyOneCharacter() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("My name is Dewan Nadia Sultanaa");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(),
@@ -57,13 +61,15 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testFirstNameWithThirtyDigitNumber() {
+		registerPage.firstNameField.clear();
 		registerPage.firstNameField.sendKeys("345265789345678123456789876543");
 		registerPage.submitButton.click();
-		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "* ");
+		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "*");
 	}
 
 	@Test
 	public void testLastNameWithOneCharacter() {
+		registerPage.lastNameField.clear();
 		registerPage.lastNameField.sendKeys("a");
 		registerPage.submitButton.click();
 
@@ -74,6 +80,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testLastNameWithTwoCharacter() {
+		registerPage.lastNameField.clear();
 		registerPage.lastNameField.sendKeys("na");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
@@ -82,6 +89,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testLastNameWithThirtyCharacter() {
+		registerPage.lastNameField.clear();
 		registerPage.lastNameField.sendKeys("mynameisDewanNadiaSultanaShumi");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
@@ -90,6 +98,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testLastNameWithThirtyOneCharacter() {
+		registerPage.lastNameField.clear();
 		registerPage.lastNameField.sendKeys("my name is Dewan Nadia Sultanaa");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(),
@@ -106,6 +115,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testLastNameWithThirtyDigitNumber() {
+		registerPage.lastNameField.clear();
 		registerPage.lastNameField.sendKeys("3452657893456712345678987653");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "*");
@@ -119,7 +129,8 @@ public class TestRegisterPage extends TestBase {
 	}
 
 	@Test
-	public void testDateOfBirthWithNoOption() {
+	public void testDateOfBirthWithNoDate() {
+		registerPage.dateOfBirthField.clear();
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "* DateOfBirth can not be empty.");
 
@@ -127,7 +138,8 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testDateOfBirthWithFutureDate() {
-		registerPage.dateOfBirthField.sendKeys("12/19/2018");
+		registerPage.dateOfBirthField.clear();
+		registerPage.dateOfBirthField.sendKeys("2018-12-19");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "*");
 
@@ -135,6 +147,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testPhoneNoWithTwoDigitNumber() {
+		registerPage.phoneNoField.clear();
 		registerPage.phoneNoField.sendKeys("34");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(), "*");
@@ -143,6 +156,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testPhoneNoWithThirtyOneDigitNumber() {
+		registerPage.phoneNoField.clear();
 		registerPage.phoneNoField.sendKeys("1234567890123456789009876543211");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(),
@@ -166,6 +180,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testEmailWithInvalidEmail() {
+		registerPage.emailField.clear();
 		registerPage.emailField.sendKeys("sultana1@gmailcom");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(6).getText(), "* Invalid Email");
@@ -181,6 +196,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testPasswordWithInvalidPassword() {
+		registerPage.passwordField.clear();
 		registerPage.passwordField.sendKeys("InvalidPassword");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "*");
@@ -196,6 +212,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testPasswordWithFiveCharacter() {
+		registerPage.passwordField.clear();
 		registerPage.passwordField.sendKeys("hgfds");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "* Password can not be less than 6 character.");
@@ -204,6 +221,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testPasswordWithSixToTwentyDigitNumber() {
+		registerPage.passwordField.clear();
 		registerPage.passwordField.sendKeys("12345678900987654321");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "*");
@@ -212,6 +230,7 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testPasswordWithTwentyOneCharacter() {
+		registerPage.passwordField.clear();
 		registerPage.passwordField.sendKeys("asdfghjklpoiuytrewqzx");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "* Password can not be greater than 20 character.");
@@ -221,7 +240,8 @@ public class TestRegisterPage extends TestBase {
 
 	@Test
 	public void testConfirmPasswordWithInvalidPassword() {
-		registerPage.passwordField.sendKeys("InvalidPassword");
+		registerPage.confirmPasswordField.clear();
+		registerPage.confirmPasswordField.sendKeys("InvalidPassword");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(8).getText(), "* ConfirmPassword did not match.");
 
@@ -243,36 +263,41 @@ public class TestRegisterPage extends TestBase {
 	}
 
 	@Test
-	public void testCaptchaImageWithInvalidImage() {
-		registerPage.passwordField.sendKeys("Invalid Image");
+	public void testCaptchaImageWithInvalidInput() {
+		registerPage.captchaImageField.sendKeys("Invalid Image");
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(9).getText(), "* Wrong Code Entered");
 
 	}
+	
 	@Test
-	public void testPrivatePolicyWithEmpty() {
+	public void testPrivacyPolicyWithEmpty() {
+		registerPage.privacyCheckBox.click();
 		registerPage.submitButton.click();
 		Assert.assertEquals(registerPage.errorWebElementList.get(10).getText(), "* Privacy can not be empty.");
 
 	}
 	
-	@Test
-	public void testRegistrationPageWithAllEmptyField() {
-		registerPage.submitButton.click();
-		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "* FirstName can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "* LastName can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(2).getText(), "* Gender can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "* DateOfBirth can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(), "* PhoneNo can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(5).getText(), "* UserType can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(6).getText(), "* Email can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "* Password can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(8).getText(), "* ConfirmPassword can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(9).getText(), "* Captcha can not be empty.");
-		Assert.assertEquals(registerPage.errorWebElementList.get(10).getText(), "* Privacy can not be empty.");
-
-
-	}
+//	@Test
+//	public void testRegistrationPageWithAllEmptyField() {
+//		registerPage.pageRefresh();
+//		registerPage.privacyCheckBox.click();
+//		registerPage.subscribeCheckBox.click();
+//		registerPage.submitButton.click();
+//		Assert.assertEquals(registerPage.errorWebElementList.get(0).getText(), "* FirstName can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(1).getText(), "* LastName can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(2).getText(), "* Gender can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(3).getText(), "* DateOfBirth can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(4).getText(), "* PhoneNo can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(5).getText(), "* UserType can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(6).getText(), "* Email can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(7).getText(), "* Password can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(8).getText(), "* ConfirmPassword can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(9).getText(), "* Captcha can not be empty.");
+//		Assert.assertEquals(registerPage.errorWebElementList.get(10).getText(), "* Privacy can not be empty.");
+//
+//
+//	}
 
 
 	@AfterClass
