@@ -13,6 +13,10 @@ public class JobSeekerProfileMenu extends PageBase{
 	@FindBy(linkText = "ADD EXPERIENCE")
 	public WebElement addExperienceLink;
 	
+	@FindBy(linkText = "APPLICATION STATUS")
+	public WebElement applicationStatusLink;
+	
+	
 
 	
 	
