@@ -2,14 +2,16 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import base.TestBase;
 
 public class TestAddNewExperience extends TestBase {
 	@BeforeClass
-	public void ClassSetUp() {
+	public void classSetUp() {
 		menuBar.signInLink.click();
 		signinPage.signIn("nurul@yahoo.com", "365827");
 		jobSeekerProfileMenu.addExperienceLink.click();
@@ -33,7 +35,10 @@ public class TestAddNewExperience extends TestBase {
 
 	@Test
 	public void testSelectYourCompanyWithSelectOption() {
-		addNewExperience.companyField.sendKeys("EliteCareer");
+		addNewExperience.jobTitleField.clear();
+		addNewExperience.joiningDateField.clear();
+		
+		addNewExperience.selectOptionFormDropdownList(addNewExperience.companyField);
 		addNewExperience.submitButton.click();
 		Assert.assertEquals(addNewExperience.errorWebElementList.get(1).getText(), "*");
 

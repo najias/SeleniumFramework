@@ -235,7 +235,6 @@ public class TestAddNewEducation extends TestBase {
 		addNewEducation.zipCodeField.sendKeys("asdf");
 		addNewEducation.submitButton.click();
 		Assert.assertEquals(addNewEducation.errorWebElementList.get(8).getText(), "*");
-
 	}
 
 	@AfterClass
